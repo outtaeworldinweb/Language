@@ -29,57 +29,57 @@
 <script>
 const DATA = {
     "English": {
-        3: [ // Tested at P3 level + 2 = P5 Standard (10 questions)
-            {q: "The library needs to *acommodate* more study tables for students.", a: "accommodate", h: "Spelling Trap: Missing double consonants"},
+        3: [ // Target P5 Standard
+            {q: "The library needs to *acommodete* more study tables for students.", a: "accommodate", h: "Spelling Trap: Fix the 'o' to 'a' or double letters"},
             {q: "She was completely *unconcious* after bumping her head.", a: "unconscious", h: "Spelling Trap: Missing a silent letter"},
             {q: "You must buy some *stationery* items like erasers and rulers.", a: "stationery", h: "Context: Materials for writing (e vs a)"},
-            {q: "The team made a *recomendation* to change the layout.", a: "recommendation", h: "Spelling Trap: Check the double letters"},
-            {q: "He made a *deliberate* choice to skip the lesson.", a: "deliberate", h: "Vocab: Done consciously and intentionally"},
-            {q: "We must protect the *enviroment* from pollution.", a: "environment", h: "Spelling Trap: Don't forget the silent 'n'"},
-            {q: "It is *neccessary* to bring your thermometer tomorrow.", a: "necessary", h: "Spelling Trap: One collar, two sleeves (c vs s)"},
-            {q: "The little girl wanted a *peice* of cake.", a: "piece", h: "Spelling Trap: 'i' before 'e' rule"},
-            {q: "There are *forty* students attending the field trip.", a: "forty", h: "Spelling Trap: Do not include a 'u'"},
-            {q: "The train remained *stationary* at the platform for ten minutes.", a: "stationary", h: "Context: Not moving (a vs e)"}
+            {q: "The team made a *recomendation* to change the classroom layout.", a: "recommendation", h: "Spelling Trap: Double 'c' and double 'm' needed"},
+            {q: "He made a *deliberete* choice to skip the lesson.", a: "deliberate", h: "Spelling Trap: Ends with '-ate', not '-ete'"},
+            {q: "We must protect the *enviroment* from severe plastic pollution.", a: "environment", h: "Spelling Trap: Missing the inner 'n'"},
+            {q: "It is *neccesary* to bring your digital thermometer tomorrow.", a: "necessary", h: "Spelling Trap: One 'c' and double 's'"},
+            {q: "The little girl wanted a small *peice* of chocolate cake.", a: "piece", h: "Spelling Trap: 'i' before 'e' rule flaw"},
+            {q: "There are *fourty* primary students attending the zoo trip.", a: "forty", h: "Spelling Trap: There is no 'u' in this number"},
+            {q: "The broken train remained *stationery* at the platform.", a: "stationary", h: "Context: Standing still without moving (a vs e)"}
         ],
-        4: [ // Tested at P4 level + 2 = P6 / PSLE Standard (10 questions)
-            {q: "Our class teacher is very *conscientous* and marks work carefully.", a: "conscientious", h: "Spelling Trap: Pronounced 'shus' but spelled with 'ti'"},
-            {q: "There is a massive *discrepency* in your math answers.", a: "discrepancy", h: "Spelling Trap: An 'a' or an 'e' change"},
-            {q: "The driver tried to *manouvre* through the tight alley.", a: "manoeuvre", h: "Spelling Trap: Traditional British formatting"},
-            {q: "The sudden loud thunder was a regular *occurence* during monsoon.", a: "occurrence", h: "Spelling Trap: Needs double 'c' and double 'r'"},
-            {q: "She felt deep *embarasment* when she fell on stage.", a: "embarrassment", h: "Spelling Trap: Requires double 'r' and double 's'"},
-            {q: "The views from the mountain *scenery* were breathtaking.", a: "scenery", h: "Vocab: The natural features of a landscape"},
-            {q: "The country will *guarante* free healthcare access for citizens.", a: "guarantee", h: "Spelling Trap: Missing the double vowel"},
-            {q: "It is quite *apparent* that he did not study for the paper.", a: "apparent", h: "Vocab: Clearly visible or understood"},
-            {q: "Her *perseverence* paid off when she finally passed the test.", a: "perseverance", h: "Spelling Trap: Ends with '-ance', not '-ence'"},
-            {q: "The historical *museum* was filled with antique artifacts.", a: "museum", h: "Vocab: A building in which objects of interest are stored"}
+        4: [ // Target P6 / PSLE Standard
+            {q: "Our form teacher is very *conscientous* and marks work carefully.", a: "conscientious", h: "Spelling Trap: Missing the 'ti' vowel sequence"},
+            {q: "There is a massive *discrepency* in your science observations.", a: "discrepancy", h: "Spelling Trap: Should end with '-ancy'"},
+            {q: "The driver tried to *manouvre* through the tight parallel lot.", a: "manoeuvre", h: "Spelling Trap: Complex British vowel arrangement"},
+            {q: "The loud thunder was a regular *ocurence* during December.", a: "occurrence", h: "Spelling Trap: Needs double 'c' and double 'r'"},
+            {q: "She felt deep *embarasment* when she tripped on the stairs.", a: "embarrassment", h: "Spelling Trap: Needs double 'r' and double 's'"},
+            {q: "The view of the mountain *scanery* was absolutely gorgeous.", a: "scenery", h: "Spelling Trap: Scenery uses an 'e', not an 'a'"},
+            {q: "The school will *guarante* free entry tickets for everyone.", a: "guarantee", h: "Spelling Trap: Needs to end with double 'e'"},
+            {q: "It is quite *apperent* that he did not prepare for the oral.", a: "apparent", h: "Spelling Trap: Spelled with 'a', not 'e' in the middle"},
+            {q: "Her *perseverence* paid off when she cleared the paper.", a: "perseverance", h: "Spelling Trap: Ends with '-ance'"},
+            {q: "The historical *musium* was filled with antique relics.", a: "museum", h: "Spelling Trap: Spelled with 'eu', not 'iu'"}
         ],
-        5: [ // Tested at P5 level + 2 = Sec 1 Standard (10 questions)
-            {q: "An iPad has become an *indispensable* tool for modern work.", a: "indispensable", h: "Vocab: Absolutely necessary and essential"},
-            {q: "The athlete showed immense *resilience* after breaking his leg.", a: "resilience", h: "Vocab: The capacity to recover quickly from difficulties"},
-            {q: "She was absolutely *ecstatic* when she scored an AL1.", a: "ecstatic", h: "Vocab: Overwhelmingly happy or joyful"},
-            {q: "The general manager decided to *definitely* launch the project.", a: "definitely", h: "Spelling Trap: Often misspelled as 'definately'"},
-            {q: "The old cinema was completely *demolished* by contractors.", a: "demolished", h: "Vocab: Pulled down or completely destroyed"},
-            {q: "He has exclusive *posession* of the family heritage house.", a: "possession", h: "Spelling Trap: Four 's' letters total"},
-            {q: "The patient suffered from severe *diarhea* last night.", a: "diarrhoea", h: "Spelling Trap: British spelling uses 'o-e-a' at the end"},
-            {q: "Her performance was an absolute *exageration* of facts.", a: "exaggerate", h: "Spelling Trap: Needs double 'g'"},
-            {q: "The remote village was completely *inaccesible* by car.", a: "inaccessible", h: "Spelling Trap: Double 'c', double 's', and '-ible'"},
-            {q: "The aroma of freshly baked bread was *irresistable*.", a: "irresistible", h: "Spelling Trap: Ends with '-ible', not '-able'"}
+        5: [ // Target Secondary 1 Standard
+            {q: "An iPad has become an *indispensible* study tool.", a: "indispensable", h: "Spelling Trap: Ends with '-able', not '-ible'"},
+            {q: "The athlete showed immense *resiliance* after her major injury.", a: "resilience", h: "Spelling Trap: Ends with '-ence', not '-ance'"},
+            {q: "She was absolutely *ecstetic* when she saw her final marks.", a: "ecstatic", h: "Spelling Trap: Uses 'a' for static"},
+            {q: "The general manager decided to *definately* launch it.", a: "definitely", h: "Spelling Trap: Built from 'finite', contains 'i'"},
+            {q: "The old warehouse was completely *demolished* by contractors.", a: "demolished", h: "Vocab Check: Type the correct word for destroyed"},
+            {q: "He has exclusive *possession* of the family properties.", a: "possession", h: "Spelling Trap: Ensure all double letters are correct"},
+            {q: "The poor student suffered from severe *diarhea*.", a: "diarrhoea", h: "Spelling Trap: Tricky double 'r' and British 'oe'"},
+            {q: "Her dramatic presentation was a clear *exageration*.", a: "exaggerate", h: "Spelling Trap: Missing a double 'g'"},
+            {q: "The remote island was completely *inaccesible* by ferry.", a: "inaccessible", h: "Spelling Trap: Double 'c', double 's', ends in '-ible'"},
+            {q: "The smell of fresh pastries from the kitchen was *irresistable*.", a: "irresistible", h: "Spelling Trap: Ends with '-ible', not '-able'"}
         ],
-        6: [ // Tested at P6 level + 2 = Sec 2 Standard (10 questions)
-            {q: "Spitting in public places is completely *reprehensible*.", a: "reprehensible", h: "Vocab: Deserving strong condemnation or blame"},
-            {q: "The student leader spoke with great *eloquence* at the assembly.", a: "eloquence", h: "Vocab: Fluent, persuasive, and elegant speaking"},
-            {q: "The long-standing border dispute remains a tricky *dilema*.", a: "dilemma", h: "Spelling Trap: Missing a double consonant"},
-            {q: "The storm caused a *disastorous* flood across the estate.", a: "disastrous", h: "Spelling Trap: Drop the 'e' from 'disaster'"},
-            {q: "Regular building *maintainance* prevents roof leakage.", a: "maintenance", h: "Spelling Trap: Changes from 'maintain' to 'mainten-'"},
-            {q: "The decision to build the expressway was *unanimous*.", a: "unanimous", h: "Vocab: Fully agreed upon by everyone involved"},
-            {q: "She likes to *reminisce* about her childhood primary school days.", a: "reminisce", h: "Vocab: Indulge in enjoyable recollection of past events"},
-            {q: "The feeling of *exhilaration* when crossing the finish line was great.", a: "exhilaration", h: "Vocab: A feeling of excitement, happiness, or elation"},
-            {q: "He cast a *pessimistic* glance at his failing grades.", a: "pessimistic", h: "Vocab: Tending to see the worst aspect of things"},
-            {q: "The cat's sharp claws left deep *scratching* marks on the sofa.", a: "scratching", h: "Vocab: Scoring or marking a surface with something sharp"}
+        6: [ // Target Secondary 2 Standard
+            {q: "Cheating in a national exam is completely *reprehensible*.", a: "reprehensible", h: "Vocab Check: Type the correct word for blameworthy"},
+            {q: "The valedictorian spoke with great *eloquence* on stage.", a: "eloquence", h: "Vocab Check: Type the correct word for fluent speech"},
+            {q: "The management is facing a major budget *dilema*.", a: "dilemma", h: "Spelling Trap: Needs double 'm'"},
+            {q: "The heavy storm caused a *disastorous* collapse of the roof.", a: "disastrous", h: "Spelling Trap: There is no 'e' or 'o' after the 't'"},
+            {q: "Regular facilities *maintainance* prevents system breakdowns.", a: "maintenance", h: "Spelling Trap: Changes root from 'maintain' to 'mainten-'"},
+            {q: "The committee came to a *unanimous* agreement.", a: "unanimous", h: "Vocab Check: Type the correct word meaning total agreement"},
+            {q: "We sat down together to *reminisce* about our childhood.", a: "reminisce", h: "Vocab Check: Type the word for recalling sweet memories"},
+            {q: "Winning the race gave him a shot of pure *exhilaration*.", a: "exhilaration", h: "Vocab Check: Type the correct word for high excitement"},
+            {q: "Do not take such a *pessimistic* view of your trial scores.", a: "pessimistic", h: "Vocab Check: Type the correct word meaning negative outlook"},
+            {q: "The cat left deep *scratching* marks all over the doors.", a: "scratching", h: "Vocab Check: Type the correct word for scraping"}
         ]
     },
     "Higher Chinese": {
-        3: [ // P5 Standard (10 questions)
+        3: [
             {q: "听到这个好消息，他不由得高声___呼起来。", a: "欢", h: "提示: 欢呼 (To cheer)"},
             {q: "老师总是耐心地___导我们做人的道理。", a: "教", h: "提示: 教导 (To guide / instruct)"},
             {q: "我们要学会___惜时间，不要老大徒伤悲。", a: "珍", h: "提示: 珍惜 (To cherish)"},
@@ -91,7 +91,7 @@ const DATA = {
             {q: "我们要积极___加学校举办的体育活动。", a: "参", h: "提示: 参加 (To participate)"},
             {q: "升旗礼时，全体师生都肃立___敬。", a: "致", h: "提示: 致敬 (To pay respects)"}
         ],
-        4: [ // P6 / PSLE Standard (10 questions)
+        4: [
             {q: "面对突如其来的困难，他表现得非常___着。", a: "沉", h: "提示: 沉着 (Calm and composed)"},
             {q: "大家应该互相___勉，共同取得好成绩。", a: "共", h: "提示: 共勉 (To encourage each other)"},
             {q: "警方正在全力___捕那个逃跑的嫌犯。", a: "追", h: "提示: 追捕 (To pursue and capture)"},
@@ -103,7 +103,7 @@ const DATA = {
             {q: "林经理在会议上___表了精辟的见解。", a: "发", h: "提示: 发表 (To express/publish)"},
             {q: "优秀的士兵必须绝对___从长官的命令。", a: "服", h: "提示: 服从 (To obey)"}
         ],
-        5: [ // Sec 1 Standard (10 questions)
+        5: [
             {q: "这个项目的成功完全___功于大家的努力。", a: "归", h: "提示: 归功 (To attribute success to)"},
             {q: "他的无礼行为彻底___怒了在场的所有人。", a: "激", h: "提示: 激怒 (To infuriate / provoke)"},
             {q: "我们需要进一步___善学校的体育设施。", a: "完", h: "提示: 完善 (To perfect / improve)"},
@@ -115,7 +115,7 @@ const DATA = {
             {q: "长时间看屏幕会严重___响学生的视力。", a: "影", h: "提示: 影响 (To affect / impact)"},
             {q: "他因为杰出的表现而获得了校方的___扬。", a: "表", h: "提示: 表扬 (To praise / commend)"}
         ],
-        6: [ // Sec 2 Standard (10 questions)
+        6: [
             {q: "科学家们正在积极___索宇宙的奥秘。", a: "探", h: "提示: 探索 (To explore / probe)"},
             {q: "政府采取了严厉措施来___制通货膨胀。", a: "抑", h: "提示: 抑制 (To restrain / control)"},
             {q: "他的卓越贡献将永远___刻在历史的丰碑上。", a: "铭", h: "提示: 铭刻 (To engrave deeply in heart)"},
@@ -168,7 +168,6 @@ function startChallenge(level) {
     currentLevel = level;
     targetLevel = Math.min(level + 2, 6);
     
-    // Copy the 10 questions and shuffle them randomly
     questions = [...DATA[language][targetLevel]];
     questions.sort(() => Math.random() - 0.5);
     
@@ -185,7 +184,7 @@ function showQuestion() {
     }
     const q = questions[currentQIndex];
     const heading = language === "English" ? `Target: Grade ${targetLevel} Standard (+2 Level-Up)` : `目标难度：次级 ${targetLevel} 标准`;
-    const label = language === "English" ? "Correct the intentionally misspelled word inside the asterisks (* *):" : "请填入正确的动词字（只需填入一个汉字）:";
+    const label = language === "English" ? "Correct the broken/misspelled word inside the asterisks (* *):" : "请填入正确的动词字（只需填入一个汉字）:";
     const btnText = language === "English" ? "Submit Answer" : "提交答案";
 
     card.innerHTML = `
