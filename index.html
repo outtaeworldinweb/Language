@@ -29,39 +29,103 @@
 <script>
 const DATA = {
     "English": {
-        3: [
-            {q: "The boy walked down the *aisle* of the supermarket.", a: "aisle", h: "Spelling: A pathway between shelves"},
-            {q: "She was *conscious* after fainting on the field.", a: "conscious", h: "Spelling: Awake and aware"}
+        3: [ // Tested at P3 level + 2 = P5 Standard (10 questions)
+            {q: "The library needs to *acommodate* more study tables for students.", a: "accommodate", h: "Spelling Trap: Missing double consonants"},
+            {q: "She was completely *unconcious* after bumping her head.", a: "unconscious", h: "Spelling Trap: Missing a silent letter"},
+            {q: "You must buy some *stationery* items like erasers and rulers.", a: "stationery", h: "Context: Materials for writing (e vs a)"},
+            {q: "The team made a *recomendation* to change the layout.", a: "recommendation", h: "Spelling Trap: Check the double letters"},
+            {q: "He made a *deliberate* choice to skip the lesson.", a: "deliberate", h: "Vocab: Done consciously and intentionally"},
+            {q: "We must protect the *enviroment* from pollution.", a: "environment", h: "Spelling Trap: Don't forget the silent 'n'"},
+            {q: "It is *neccessary* to bring your thermometer tomorrow.", a: "necessary", h: "Spelling Trap: One collar, two sleeves (c vs s)"},
+            {q: "The little girl wanted a *peice* of cake.", a: "piece", h: "Spelling Trap: 'i' before 'e' rule"},
+            {q: "There are *forty* students attending the field trip.", a: "forty", h: "Spelling Trap: Do not include a 'u'"},
+            {q: "The train remained *stationary* at the platform for ten minutes.", a: "stationary", h: "Context: Not moving (a vs e)"}
         ],
-        4: [
-            {q: "The principal praised him for his *conscientious* effort.", a: "conscientious", h: "Spelling: Thorough and diligent"},
-            {q: "There is a *discrepancy* between the two reports.", a: "discrepancy", h: "Spelling: A difference or mismatch"}
+        4: [ // Tested at P4 level + 2 = P6 / PSLE Standard (10 questions)
+            {q: "Our class teacher is very *conscientous* and marks work carefully.", a: "conscientious", h: "Spelling Trap: Pronounced 'shus' but spelled with 'ti'"},
+            {q: "There is a massive *discrepency* in your math answers.", a: "discrepancy", h: "Spelling Trap: An 'a' or an 'e' change"},
+            {q: "The driver tried to *manouvre* through the tight alley.", a: "manoeuvre", h: "Spelling Trap: Traditional British formatting"},
+            {q: "The sudden loud thunder was a regular *occurence* during monsoon.", a: "occurrence", h: "Spelling Trap: Needs double 'c' and double 'r'"},
+            {q: "She felt deep *embarasment* when she fell on stage.", a: "embarrassment", h: "Spelling Trap: Requires double 'r' and double 's'"},
+            {q: "The views from the mountain *scenery* were breathtaking.", a: "scenery", h: "Vocab: The natural features of a landscape"},
+            {q: "The country will *guarante* free healthcare access for citizens.", a: "guarantee", h: "Spelling Trap: Missing the double vowel"},
+            {q: "It is quite *apparent* that he did not study for the paper.", a: "apparent", h: "Vocab: Clearly visible or understood"},
+            {q: "Her *perseverence* paid off when she finally passed the test.", a: "perseverance", h: "Spelling Trap: Ends with '-ance', not '-ence'"},
+            {q: "The historical *museum* was filled with antique artifacts.", a: "museum", h: "Vocab: A building in which objects of interest are stored"}
         ],
-        5: [
-            {q: "The internet has become an *indispensable* tool.", a: "indispensable", h: "Vocab: Absolutely necessary"},
-            {q: "She showed great *resilience* during the trial.", a: "resilience", h: "Vocab: Ability to recover quickly"}
+        5: [ // Tested at P5 level + 2 = Sec 1 Standard (10 questions)
+            {q: "An iPad has become an *indispensable* tool for modern work.", a: "indispensable", h: "Vocab: Absolutely necessary and essential"},
+            {q: "The athlete showed immense *resilience* after breaking his leg.", a: "resilience", h: "Vocab: The capacity to recover quickly from difficulties"},
+            {q: "She was absolutely *ecstatic* when she scored an AL1.", a: "ecstatic", h: "Vocab: Overwhelmingly happy or joyful"},
+            {q: "The general manager decided to *definitely* launch the project.", a: "definitely", h: "Spelling Trap: Often misspelled as 'definately'"},
+            {q: "The old cinema was completely *demolished* by contractors.", a: "demolished", h: "Vocab: Pulled down or completely destroyed"},
+            {q: "He has exclusive *posession* of the family heritage house.", a: "possession", h: "Spelling Trap: Four 's' letters total"},
+            {q: "The patient suffered from severe *diarhea* last night.", a: "diarrhoea", h: "Spelling Trap: British spelling uses 'o-e-a' at the end"},
+            {q: "Her performance was an absolute *exageration* of facts.", a: "exaggerate", h: "Spelling Trap: Needs double 'g'"},
+            {q: "The remote village was completely *inaccesible* by car.", a: "inaccessible", h: "Spelling Trap: Double 'c', double 's', and '-ible'"},
+            {q: "The aroma of freshly baked bread was *irresistable*.", a: "irresistible", h: "Spelling Trap: Ends with '-ible', not '-able'"}
         ],
-        6: [
-            {q: "His rude behavior was completely *reprehensible*.", a: "reprehensible", h: "Vocab: Deserving strong blame"},
-            {q: "The old building was *demolished* for the new MRT station.", a: "demolished", h: "Vocab: Knocked down completely"}
+        6: [ // Tested at P6 level + 2 = Sec 2 Standard (10 questions)
+            {q: "Spitting in public places is completely *reprehensible*.", a: "reprehensible", h: "Vocab: Deserving strong condemnation or blame"},
+            {q: "The student leader spoke with great *eloquence* at the assembly.", a: "eloquence", h: "Vocab: Fluent, persuasive, and elegant speaking"},
+            {q: "The long-standing border dispute remains a tricky *dilema*.", a: "dilemma", h: "Spelling Trap: Missing a double consonant"},
+            {q: "The storm caused a *disastorous* flood across the estate.", a: "disastrous", h: "Spelling Trap: Drop the 'e' from 'disaster'"},
+            {q: "Regular building *maintainance* prevents roof leakage.", a: "maintenance", h: "Spelling Trap: Changes from 'maintain' to 'mainten-'"},
+            {q: "The decision to build the expressway was *unanimous*.", a: "unanimous", h: "Vocab: Fully agreed upon by everyone involved"},
+            {q: "She likes to *reminisce* about her childhood primary school days.", a: "reminisce", h: "Vocab: Indulge in enjoyable recollection of past events"},
+            {q: "The feeling of *exhilaration* when crossing the finish line was great.", a: "exhilaration", h: "Vocab: A feeling of excitement, happiness, or elation"},
+            {q: "He cast a *pessimistic* glance at his failing grades.", a: "pessimistic", h: "Vocab: Tending to see the worst aspect of things"},
+            {q: "The cat's sharp claws left deep *scratching* marks on the sofa.", a: "scratching", h: "Vocab: Scoring or marking a surface with something sharp"}
         ]
     },
     "Higher Chinese": {
-        3: [
-            {q: "听到这个好消息，他不由得高声___呼起来。", a: "欢", h: "提示: 高兴地喊叫 (cheer)"},
-            {q: "老师总是耐心地___导我们做人的道理。", a: "教", h: "提示: 指点引导 (guide)"}
+        3: [ // P5 Standard (10 questions)
+            {q: "听到这个好消息，他不由得高声___呼起来。", a: "欢", h: "提示: 欢呼 (To cheer)"},
+            {q: "老师总是耐心地___导我们做人的道理。", a: "教", h: "提示: 教导 (To guide / instruct)"},
+            {q: "我们要学会___惜时间，不要老大徒伤悲。", a: "珍", h: "提示: 珍惜 (To cherish)"},
+            {q: "做错事要勇于___认，不能推卸责任。", a: "承", h: "提示: 承认 (To admit)"},
+            {q: "听到敲门声，她走过去把门___开。", a: "推", h: "提示: 推开 (To push open)"},
+            {q: "他热心地向路人___路，真乐于助人。", a: "指", h: "提示: 指路 (To show directions)"},
+            {q: "双胞胎长得很像，很难___辩谁是哥哥。", a: "分", h: "提示: 分辨 (To distinguish)"},
+            {q: "弟弟不小心___碎了妈妈最喜欢的花瓶。", a: "打", h: "提示: 打碎 (To smash)"},
+            {q: "我们要积极___加学校举办的体育活动。", a: "参", h: "提示: 参加 (To participate)"},
+            {q: "升旗礼时，全体师生都肃立___敬。", a: "致", h: "提示: 致敬 (To pay respects)"}
         ],
-        4: [
-            {q: "面对突如其来的困难，他表现得非常___着。", a: "沉", h: "提示: 镇静不慌张 (calm)"},
-            {q: "大家应该互相___勉，共同取得好成绩。", a: "共", h: "提示: 互相鼓励 (encourage)"}
+        4: [ // P6 / PSLE Standard (10 questions)
+            {q: "面对突如其来的困难，他表现得非常___着。", a: "沉", h: "提示: 沉着 (Calm and composed)"},
+            {q: "大家应该互相___勉，共同取得好成绩。", a: "共", h: "提示: 共勉 (To encourage each other)"},
+            {q: "警方正在全力___捕那个逃跑的嫌犯。", a: "追", h: "提示: 追捕 (To pursue and capture)"},
+            {q: "我们要___守交通规则，注意过马路的安全。", a: "遵", h: "提示: 遵守 (To abide by)"},
+            {q: "这场大雨导致低洼地区发生闪___潮。", a: "电", h: "提示: 闪电 (Lightning/Flash events)"},
+            {q: "我们要尽力___助那些有需要的弱势群体。", a: "帮", h: "提示: 帮助 (To render assistance)"},
+            {q: "政府正在大力___导健康生活的饮食习惯。", a: "倡", h: "提示: 倡导 (To advocate)"},
+            {q: "由于准备充足，他从容不迫地___战考试。", a: "迎", h: "提示: 迎战 (To face a challenge)"},
+            {q: "林经理在会议上___表了精辟的见解。", a: "发", h: "提示: 发表 (To express/publish)"},
+            {q: "优秀的士兵必须绝对___从长官的命令。", a: "服", h: "提示: 服从 (To obey)"}
         ],
-        5: [
-            {q: "这个项目的成功完全___功于大家的努力。", a: "归", h: "提示: 划给、属于 (attribute to)"},
-            {q: "他的无礼行为彻底___怒了在场的所有人。", a: "激", h: "提示: 刺激使发怒 (provoke)"}
+        5: [ // Sec 1 Standard (10 questions)
+            {q: "这个项目的成功完全___功于大家的努力。", a: "归", h: "提示: 归功 (To attribute success to)"},
+            {q: "他的无礼行为彻底___怒了在场的所有人。", a: "激", h: "提示: 激怒 (To infuriate / provoke)"},
+            {q: "我们需要进一步___善学校的体育设施。", a: "完", h: "提示: 完善 (To perfect / improve)"},
+            {q: "警方呼吁目击者提供线索，协助___案。", a: "破", h: "提示: 破案 (To solve a crime case)"},
+            {q: "多年不见，他的模样几乎没有任何___化。", a: "变", h: "提示: 变化 (To alter / change)"},
+            {q: "这部电影真实地___映了社会底层的生活。", a: "反", h: "提示: 反映 (To reflect conditions)"},
+            {q: "面对强敌，我方球队毫不畏惧，顽强___抗。", a: "对", h: "提示: 对抗 (To resist / counter)"},
+            {q: "经济不景气导致许多工厂面临裁___危机。", a: "员", h: "提示: 裁员 (To retrench staff)"},
+            {q: "长时间看屏幕会严重___响学生的视力。", a: "影", h: "提示: 影响 (To affect / impact)"},
+            {q: "他因为杰出的表现而获得了校方的___扬。", a: "表", h: "提示: 表扬 (To praise / commend)"}
         ],
-        6: [
-            {q: "科学家们正在积极___索宇宙的奥秘。", a: "探", h: "提示: 多方寻求 (explore)"},
-            {q: "政府采取了严厉措施来___制通货膨胀。", a: "抑", h: "提示: 压制控制 (restrain)"}
+        6: [ // Sec 2 Standard (10 questions)
+            {q: "科学家们正在积极___索宇宙的奥秘。", a: "探", h: "提示: 探索 (To explore / probe)"},
+            {q: "政府采取了严厉措施来___制通货膨胀。", a: "抑", h: "提示: 抑制 (To restrain / control)"},
+            {q: "他的卓越贡献将永远___刻在历史的丰碑上。", a: "铭", h: "提示: 铭刻 (To engrave deeply in heart)"},
+            {q: "随着科技的发展，许多传统行业逐渐被___汰。", a: "淘", h: "提示: 淘汰 (To eliminate / phase out)"},
+            {q: "双方代表经过长期谈判，终于___成协议。", a: "达", h: "提示: 达成 (To reach an agreement)"},
+            {q: "这本自传叙述了创办人艰苦___业的历程。", a: "创", h: "提示: 创业 (To start a business)"},
+            {q: "法官秉公办案，绝不___容任何犯罪分子。", a: "纵", h: "提示: 纵容 (To condone / indulge)"},
+            {q: "面对考官的追问，他冷静思考，从容___答。", a: "应", h: "提示: 应答 (To respond / reply)"},
+            {q: "我们需要努力___掘本地年轻艺术家的潜能。", a: "发", h: "提示: 发掘 (To unearth / discover)"},
+            {q: "他做出了严重的错误判断，导致公司面临___毁性打击。", a: "毁", h: "提示: 毁灭性 (Destructive / Devastating)"}
         ]
     }
 };
@@ -103,9 +167,14 @@ function showLevelSelect() {
 function startChallenge(level) {
     currentLevel = level;
     targetLevel = Math.min(level + 2, 6);
-    questions = [...DATA[language][targetLevel]].sort(() => Math.random() - 0.5);
+    
+    // Copy the 10 questions and shuffle them randomly
+    questions = [...DATA[language][targetLevel]];
+    questions.sort(() => Math.random() - 0.5);
+    
     currentQIndex = 0;
     score = 0;
+    
     showQuestion();
 }
 
@@ -115,25 +184,27 @@ function showQuestion() {
         return;
     }
     const q = questions[currentQIndex];
-    const heading = language === "English" ? `Target: Grade ${targetLevel} Standard` : `目标：次级 ${targetLevel} 难度`;
-    const label = language === "English" ? "Fix the word in asterisks (* *):" : "请填入正确的动词字:";
+    const heading = language === "English" ? `Target: Grade ${targetLevel} Standard (+2 Level-Up)` : `目标难度：次级 ${targetLevel} 标准`;
+    const label = language === "English" ? "Correct the intentionally misspelled word inside the asterisks (* *):" : "请填入正确的动词字（只需填入一个汉字）:";
     const btnText = language === "English" ? "Submit Answer" : "提交答案";
 
     card.innerHTML = `
         <div id="trophy-box"></div>
         <h2>${heading}</h2>
-        <p>${label}</p>
+        <p style="color:#e28743; font-weight:bold;">${label}</p>
         <div class="sentence">"${q.q}"</div>
         <div class="hint">${q.h}</div>
         <input type="text" id="user-answer" placeholder="..." autofocus onkeypress="if(event.key==='Enter') checkAnswer()"><br>
         <button onclick="checkAnswer()">${btnText}</button>
         <div class="celebration-text" id="celeb-msg"></div>
-        <p>Score: ${score} | Question ${currentQIndex + 1} of ${questions.length}</p>
+        <p style="font-weight: 500;">Score: ${score} | Question ${currentQIndex + 1} of ${questions.length}</p>
     `;
 }
 
 function checkAnswer() {
     const inputElement = document.getElementById("user-answer");
+    if (!inputElement) return;
+    
     const userAns = inputElement.value.trim().toLowerCase();
     const correctAns = questions[currentQIndex].a.toLowerCase();
     const msgElement = document.getElementById("celeb-msg");
@@ -142,19 +213,19 @@ function checkAnswer() {
         score++;
         document.getElementById("trophy-box").innerHTML = `<div class="trophy-anim">🏆</div>`;
         msgElement.style.color = "#2bc473";
-        msgElement.innerText = "Congratulations! Awesome! score +1";
+        msgElement.innerText = "Congratulations! Awesome! score 1";
         setTimeout(() => { currentQIndex++; showQuestion(); }, 1500);
     } else {
         msgElement.style.color = "red";
-        msgElement.innerText = `Incorrect. Correct answer: ${questions[currentQIndex].a}`;
+        msgElement.innerText = `Incorrect. Correct spelling: ${questions[currentQIndex].a}`;
         setTimeout(() => { currentQIndex++; showQuestion(); }, 2000);
     }
 }
 
 function showGameOver() {
     card.innerHTML = `
-        <h1>🏁 Game Over!</h1>
-        <p>Great effort completing the +2 Grade Challenge!</p>
+        <h1>🏁 Challenge Completed!</h1>
+        <p>Excellent work tackling all 10 questions at the elevated standard.</p>
         <h2>Final Score: ${score} / ${questions.length}</h2>
         <button onclick="showLangSelect()">Play Again</button>
     `;
