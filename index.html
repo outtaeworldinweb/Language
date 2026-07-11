@@ -1,94 +1,166 @@
-import random
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSLE & Beyond Challenger</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f0f2f5; margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        .card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 100%; max-width: 500px; text-align: center; position: relative; }
+        h1 { color: #1a73e8; margin-top: 0; }
+        button { background: #1a73e8; color: white; border: none; padding: 12px 24px; font-size: 16px; border-radius: 6px; cursor: pointer; margin: 8px; width: 80%; transition: background 0.2s; }
+        button:hover { background: #1557b0; }
+        input[type="text"] { width: 80%; padding: 12px; font-size: 16px; border: 2px solid #ccc; border-radius: 6px; margin-bottom: 15px; text-align: center; }
+        .hint { color: #666; font-style: italic; margin-bottom: 20px; font-size: 14px; }
+        .sentence { font-size: 18px; font-weight: 500; margin-bottom: 15px; line-height: 1.5; color: #333; }
+        .trophy-anim { position: absolute; top: -50px; left: 50%; transform: translateX(-50%); font-size: 50px; animation: floatUp 1.5s ease-out forwards; opacity: 0; pointer-events: none; }
+        @keyframes floatUp {
+            0% { transform: translate(-50%, 20px); opacity: 0; }
+            20% { opacity: 1; }
+            100% { transform: translate(-50%, -60px); opacity: 0; }
+        }
+        .celebration-text { color: #2bc473; font-weight: bold; font-size: 20px; margin: 10px 0; min-height: 28px; }
+    </style>
+</head>
+<body>
 
-DATA = {
+<div class="card" id="game-card"></div>
+
+<script>
+const DATA = {
     "English": {
         3: [
-            ("The boy walked down the *aisle* of the supermarket.", "aisle", "Spelling: A pathway between shelves"),
-            ("She was *conscious* after fainting on the field.", "conscious", "Spelling: Awake and aware")
+            {q: "The boy walked down the *aisle* of the supermarket.", a: "aisle", h: "Spelling: A pathway between shelves"},
+            {q: "She was *conscious* after fainting on the field.", a: "conscious", h: "Spelling: Awake and aware"}
         ],
         4: [
-            ("The principal praised him for his *conscientious* effort.", "conscientious", "Spelling: Thorough and diligent"),
-            ("There is a *discrepancy* between the two reports.", "discrepancy", "Spelling: A difference or mismatch")
+            {q: "The principal praised him for his *conscientious* effort.", a: "conscientious", h: "Spelling: Thorough and diligent"},
+            {q: "There is a *discrepancy* between the two reports.", a: "discrepancy", h: "Spelling: A difference or mismatch"}
         ],
         5: [
-            ("The internet has become an *indispensable* tool.", "indispensable", "Vocab: Absolutely necessary"),
-            ("She showed great *resilience* during the trial.", "resilience", "Vocab: Ability to recover quickly")
+            {q: "The internet has become an *indispensable* tool.", a: "indispensable", h: "Vocab: Absolutely necessary"},
+            {q: "She showed great *resilience* during the trial.", a: "resilience", h: "Vocab: Ability to recover quickly"}
         ],
         6: [
-            ("His rude behavior was completely *reprehensible*.", "reprehensible", "Vocab: Deserving strong blame"),
-            ("The old building was *demolished* for the new MRT station.", "demolished", "Vocab: Knocked down completely")
+            {q: "His rude behavior was completely *reprehensible*.", a: "reprehensible", h: "Vocab: Deserving strong blame"},
+            {q: "The old building was *demolished* for the new MRT station.", a: "demolished", h: "Vocab: Knocked down completely"}
         ]
     },
     "Higher Chinese": {
         3: [
-            ("听到这个好消息，他不由得高声___呼起来。", "欢", "提示: 高兴地喊叫 (cheer)"),
-            ("老师总是耐心地___导我们做人的道理。", "教", "提示: 指点引导 (guide)")
+            {q: "听到这个好消息，他不由得高声___呼起来。", a: "欢", h: "提示: 高兴地喊叫 (cheer)"},
+            {q: "老师总是耐心地___导我们做人的道理。", a: "教", h: "提示: 指点引导 (guide)"}
         ],
         4: [
-            ("面对突如其来的困难，他表现得非常___着。", "沉", "提示: 镇静不慌张 (calm)"),
-            ("大家应该互相___勉，共同取得好成绩。", "共", "提示: 互相鼓励 (encourage)")
+            {q: "面对突如其来的困难，他表现得非常___着。", a: "沉", h: "提示: 镇静不慌张 (calm)"},
+            {q: "大家应该互相___勉，共同取得好成绩。", a: "共", h: "提示: 互相鼓励 (encourage)"}
         ],
         5: [
-            ("这个项目的成功完全___功于大家的努力。", "归", "提示: 划给、属于 (attribute to)"),
-            ("他的无礼行为彻底___怒了在场的所有人。", "激", "提示: 刺激使发怒 (provoke)")
+            {q: "这个项目的成功完全___功于大家的努力。", a: "归", h: "提示: 划给、属于 (attribute to)"},
+            {q: "他的无礼行为彻底___怒了在场的所有人。", a: "激", h: "提示: 刺激使发怒 (provoke)"}
         ],
         6: [
-            ("科学家们正在积极___索宇宙的奥秘。", "探", "提示: 多方寻求 (explore)"),
-            ("政府采取了严厉措施来___制通货膨胀。", "抑", "提示: 压制控制 (restrain)")
+            {q: "科学家们正在积极___索宇宙的奥秘。", a: "探", h: "提示: 多方寻求 (explore)"},
+            {q: "政府采取了严厉措施来___制通货膨胀。", a: "抑", h: "提示: 压制控制 (restrain)"}
         ]
+    }
+};
+
+let language = "";
+let currentLevel = 3;
+let targetLevel = 5;
+let questions = [];
+let currentQIndex = 0;
+let score = 0;
+
+const card = document.getElementById("game-card");
+
+function showLangSelect() {
+    card.innerHTML = `
+        <h1>PSLE Challenger</h1>
+        <p>Choose your Language focus:</p>
+        <button onclick="selectLang('English')">English (PSLE / Sec 2 Editing & Vocab)</button>
+        <button onclick="selectLang('Higher Chinese')">高级华文 (PSLE / Sec 2 动词)</button>
+    `;
+}
+
+function selectLang(lang) {
+    language = lang;
+    showLevelSelect();
+}
+
+function showLevelSelect() {
+    card.innerHTML = `
+        <h1>Select Your Level</h1>
+        <p>Enter your current Primary School Grade:</p>
+        <button onclick="startChallenge(3)">Primary 3</button>
+        <button onclick="startChallenge(4)">Primary 4</button>
+        <button onclick="startChallenge(5)">Primary 5</button>
+        <button onclick="startChallenge(6)">Primary 6</button>
+    `;
+}
+
+function startChallenge(level) {
+    currentLevel = level;
+    targetLevel = Math.min(level + 2, 6);
+    questions = [...DATA[language][targetLevel]].sort(() => Math.random() - 0.5);
+    currentQIndex = 0;
+    score = 0;
+    showQuestion();
+}
+
+function showQuestion() {
+    if (currentQIndex >= questions.length) {
+        showGameOver();
+        return;
+    }
+    const q = questions[currentQIndex];
+    const heading = language === "English" ? `Target: Grade ${targetLevel} Standard` : `目标：次级 ${targetLevel} 难度`;
+    const label = language === "English" ? "Fix the word in asterisks (* *):" : "请填入正确的动词字:";
+    const btnText = language === "English" ? "Submit Answer" : "提交答案";
+
+    card.innerHTML = `
+        <div id="trophy-box"></div>
+        <h2>${heading}</h2>
+        <p>${label}</p>
+        <div class="sentence">"${q.q}"</div>
+        <div class="hint">${q.h}</div>
+        <input type="text" id="user-answer" placeholder="..." autofocus onkeypress="if(event.key==='Enter') checkAnswer()"><br>
+        <button onclick="checkAnswer()">${btnText}</button>
+        <div class="celebration-text" id="celeb-msg"></div>
+        <p>Score: ${score} | Question ${currentQIndex + 1} of ${questions.length}</p>
+    `;
+}
+
+function checkAnswer() {
+    const inputElement = document.getElementById("user-answer");
+    const userAns = inputElement.value.trim().toLowerCase();
+    const correctAns = questions[currentQIndex].a.toLowerCase();
+    const msgElement = document.getElementById("celeb-msg");
+    
+    if (userAns === correctAns) {
+        score++;
+        document.getElementById("trophy-box").innerHTML = `<div class="trophy-anim">🏆</div>`;
+        msgElement.style.color = "#2bc473";
+        msgElement.innerText = "Congratulations! Awesome! score +1";
+        setTimeout(() => { currentQIndex++; showQuestion(); }, 1500);
+    } else {
+        msgElement.style.color = "red";
+        msgElement.innerText = `Incorrect. Correct answer: ${questions[currentQIndex].a}`;
+        setTimeout(() => { currentQIndex++; showQuestion(); }, 2000);
     }
 }
 
-def run_game():
-    print("=== PSLE & BEYOND CHALLENGER ===")
-    print("Welcome to the Level-Up Game!\n")
-    
-    lang_choice = input("Select Language:\n1. English\n2. Higher Chinese\nEnter 1 or 2: ").strip()
-    if lang_choice == '1':
-        language = "English"
-    elif lang_choice == '2':
-        language = "Higher Chinese"
-    else:
-        print("Invalid choice. Exiting.")
-        return
+function showGameOver() {
+    card.innerHTML = `
+        <h1>🏁 Game Over!</h1>
+        <p>Great effort completing the +2 Grade Challenge!</p>
+        <h2>Final Score: ${score} / ${questions.length}</h2>
+        <button onclick="showLangSelect()">Play Again</button>
+    `;
+}
 
-    try:
-        level_input = int(input("\nEnter current Primary Grade (3 to 6): "))
-    except ValueError:
-        print("Please enter a valid number.")
-        return
-        
-    if level_input not in [3, 4, 5, 6]:
-        print("Invalid Grade.")
-        return
-
-    target_level = min(level_input + 2, 6)
-    questions = DATA[language].get(target_level, [])
-    random.shuffle(questions)
-
-    score = 0
-    print(f"\n🚀 Target Level Set: Testing you at Grade {target_level} standard!\n")
-
-    for q_text, answer, hint in questions:
-        print("-" * 40)
-        if language == "English":
-            print(f"Fix the word in asterisks (* *):\n\n\"{q_text}\"")
-            print(f"Hint: {hint}")
-        else:
-            print(f"请填入正确的动词字:\n\n\"{q_text}\"")
-            print(f"提示: {hint}")
-            
-        user_ans = input("\nYour Answer: ").strip()
-        
-        if user_ans.lower() == answer.lower():
-            score += 1
-            print("\n🏆 Congratulations! Awesome! score 1\n")
-        else:
-            print(f"\n❌ Incorrect. The correct answer was: {answer}\n")
-
-    print("=" * 40)
-    print(f"GAME OVER! Your Final Score: {score} / {len(questions)}")
-    print("=" * 40)
-
-if __name__ == "__main__":
-    run_game()
+showLangSelect();
+</script>
+</body>
+</html>
